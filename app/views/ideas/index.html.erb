@@ -20,9 +20,9 @@
         <tbody>
           <% @ideas.each do |idea| %>
             <tr>
-              <td><%= idea.name %></td>
-              <td><%= idea.description %></td>
-              <td><%= link_to idea.user.email %></td>
+              <td><%= link_to idea.name, idea_path(idea) %></td>
+              <td><%= truncate(idea.description, length: 30) %></td>
+              <td><%= link_to idea.user.name %></td>
               <td><%= link_to 'Visualizar', idea %></td>
               <td><%= link_to 'Editar', edit_idea_path(idea) %></td>
               <td><%= link_to 'Excluir', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
