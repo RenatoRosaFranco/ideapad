@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Nome:</strong><br>
+        <%= @idea.name %>
+      </p><br>
+
+      <p>
+        <strong>Descrição:</strong><br>
+        <%= @idea.description %>
+      </p>
+
+      <%= render partial: 'shared/disqus' %>
+
+      <%= link_to 'Editar', edit_idea_path(@idea) %> |
+      <%= link_to 'Voltar', ideas_path %>
+    </div>
+  </div>
+</div>

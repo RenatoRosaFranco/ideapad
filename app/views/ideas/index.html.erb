@@ -1,0 +1,49 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <p id="notice"><%= notice %></p>
+
+      <h1>Ideas</h1>
+      <p>Adicione sua ideia para ser discutida posteriormente.</p>
+      <br>
+
+      <table class='table table-bordered table-hover'>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Autor</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @ideas.each do |idea| %>
+            <tr>
+              <td><%= idea.name %></td>
+              <td><%= idea.description %></td>
+              <td><%= link_to idea.user.email %></td>
+              <td><%= link_to 'Visualizar', idea %></td>
+              <td><%= link_to 'Editar', edit_idea_path(idea) %></td>
+              <td><%= link_to 'Excluir', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+          <% if @ideas.empty? %>
+            <tr>
+              <td colspan='12' style='padding: 20px;'>
+                <div class=' text-center'>
+                  Nenhuma ideia adicionada, seja o primeiro.
+                  <%= link_to 'Adicionar Ideia', new_idea_path %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      
+      <%= link_to 'Adicionar Ideia', new_idea_path, class: 'btn btn-primary btn-lg top' %>
+      <br>
+    </div>
+  </div>
+</div>
