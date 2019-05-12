@@ -10,6 +10,7 @@
       <table class='table table-bordered table-hover'>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Descrição</th>
             <th>Autor</th>
@@ -20,6 +21,7 @@
         <tbody>
           <% @ideas.each do |idea| %>
             <tr>
+              <td><%= idea.id %></td>
               <td><%= link_to idea.name, idea_path(idea) %></td>
               <td><%= truncate(idea.description, length: 30) %></td>
               <td><%= link_to idea.user.name %></td>
